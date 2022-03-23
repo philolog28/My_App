@@ -19,7 +19,7 @@ OrderModel _$OrderModelFromJson(Map<String, dynamic> json) => $checkedCreate(
           basket: $checkedConvert('basket',
               (v) => v == null ? null : BasketModel.fromJson(v as Object)),
           totalPrice:
-              $checkedConvert('total_price', (v) => (v as num?)?.toDouble()),
+              $checkedConvert('totalPrice', (v) => (v as num?)?.toDouble()),
           comment: $checkedConvert('comment', (v) => v as String?),
           status: $checkedConvert('status',
               (v) => v == null ? null : ColorsModel.fromJson(v as Object)),

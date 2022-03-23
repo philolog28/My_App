@@ -3,17 +3,17 @@ import 'package:commerce_app/feature/domain/entities/item_entities/entities.dart
 import 'package:equatable/equatable.dart';
 
 
-class ListBasketItemsEnt extends Equatable{
-  final List<Items> items;
+class BasketItemsEnt extends Equatable{
+  final Items? product;
   final int? id;
   final double? price;
   final  int? quantity;
-  ListBasketItemsEnt({
-    required this.items,
+  BasketItemsEnt({
+    required this.product,
     required this.id,
     required this.price,
     required this.quantity,
   });
   @override
-  List<Object?> get props => [items,id,price,quantity];
+  List<Object?> get props => [product,id,price,quantity];
 }

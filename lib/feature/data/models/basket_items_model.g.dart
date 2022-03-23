@@ -12,8 +12,8 @@ BasketItemsModel _$BasketItemsModelFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = BasketItemsModel(
-          product: $checkedConvert(
-              'product', (v) => ItemsModel.fromJson(v as Object)),
+          product: $checkedConvert('product',
+              (v) => v == null ? null : ItemsModel.fromJson(v as Object)),
           id: $checkedConvert('id', (v) => v as int?),
           price: $checkedConvert('price', (v) => (v as num?)?.toDouble()),
           quantity: $checkedConvert('quantity', (v) => v as int?),

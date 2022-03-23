@@ -11,12 +11,10 @@ BasketModel _$BasketModelFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = BasketModel(
-          id: $checkedConvert('id', (v) => v as int?),
           items: $checkedConvert(
               'items',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      e == null ? null : ListItemsModel.fromJson(e as Object))
+                  .map((e) => BasketItemsModel.fromJson(e as Object))
                   .toList()),
           user: $checkedConvert(
               'user', (v) => BasketUserModel.fromJson(v as Object)),
@@ -28,6 +26,5 @@ BasketModel _$BasketModelFromJson(Map<String, dynamic> json) => $checkedCreate(
 Map<String, dynamic> _$BasketModelToJson(BasketModel instance) =>
     <String, dynamic>{
       'items': instance.items,
-      'id': instance.id,
       'user': instance.user,
     };

@@ -1,4 +1,5 @@
 import 'package:commerce_app/feature/domain/entities/basket_entities/get_basket_entity.dart';
+import 'package:commerce_app/feature/domain/entities/item_entities/color_entity.dart';
 import 'package:equatable/equatable.dart';
 
 class OrderEntity extends Equatable{
@@ -21,7 +22,7 @@ class OrderEntity extends Equatable{
   final BasketEntity? basket;
   final double? totalPrice;
   final String? comment;
-  final String? status;
+  final ColorsEnt? status;
   @override
 
   List<Object?> get props => [id,name,address,phone,email,basket,totalPrice,comment,status];

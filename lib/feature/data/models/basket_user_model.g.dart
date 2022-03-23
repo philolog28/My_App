@@ -13,7 +13,7 @@ BasketUserModel _$BasketUserModelFromJson(Map<String, dynamic> json) =>
       ($checkedConvert) {
         final val = BasketUserModel(
           id: $checkedConvert('id', (v) => v as int?),
-          accessKey: $checkedConvert('access_key', (v) => v as String?),
+          accessKey: $checkedConvert('accessKey', (v) => v as String?),
         );
         return val;
       },
