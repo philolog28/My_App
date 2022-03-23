@@ -7,9 +7,9 @@ class UserLoginMapper extends Mapper<UserLoginModel, UserLoginEnt> {
 
 
   @override
-  UserLoginEnt? map(UserLoginModel? entityes) {
+  UserLoginEnt? map(UserLoginModel? entity) {
     return UserLoginEnt(
-      accessKey: entityes?.accessKey,
+      accessKey: entity?.accessKey,
     );
   }
 }

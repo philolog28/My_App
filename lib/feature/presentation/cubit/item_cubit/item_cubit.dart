@@ -11,18 +11,17 @@ class ItemCubit extends Cubit<ItemsState> {
 
   final ItemRepository _itemRepository;
 
-  Future <ListItemEnt?> fetchItemsList() async{
+  Future <void> fetchItemsList({required offset}) async{
     emit(state.copyWith(status: ItemListLoadingStatus.loading));
-
     try{
-      final item =  await _itemRepository.getAllItems();
+      final item =  await _itemRepository.getAllItems(offset: offset);
       emit(state.copyWith(status: ItemListLoadingStatus.success,items: item));
 
     }on Exception{
       emit(state.copyWith(status: ItemListLoadingStatus.failure));
     }
     catch (e){
-      print(e);
+      emit(state.copyWith(status: ItemListLoadingStatus.failure));
     }
   }
 }

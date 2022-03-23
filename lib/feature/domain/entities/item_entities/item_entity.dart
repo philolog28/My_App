@@ -1,4 +1,3 @@
-import 'package:commerce_app/feature/domain/entities/item_entities/file_entity.dart';
 import 'package:equatable/equatable.dart';
 import 'color_entity.dart';
 import 'image_entity.dart';
@@ -11,7 +10,7 @@ class Items extends Equatable {
   final double price;
   final List<ColorsEnt> colors;
 
-   const Items(
+  const Items(
       {required this.id,
       required this.title,
       required this.slug,
@@ -20,7 +19,8 @@ class Items extends Equatable {
       required this.colors});
 
   @override
-  List<Object?> get props => [id, title,slug,image,price,colors];
+  List<Object?> get props => [id, title, slug, image, price, colors];
+
   Items copyWith({
     int? id,
     String? title,
@@ -39,6 +39,3 @@ class Items extends Equatable {
     );
   }
 }
-
-
-

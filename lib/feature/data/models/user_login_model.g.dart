@@ -12,7 +12,7 @@ UserLoginModel _$UserLoginModelFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = UserLoginModel(
-          accessKey: $checkedConvert('access_key', (v) => v as String?),
+          accessKey: $checkedConvert('accessKey', (v) => v as String?),
         );
         return val;
       },

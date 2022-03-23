@@ -14,9 +14,11 @@ ListItemsModel _$ListItemsModelFromJson(Map<String, dynamic> json) =>
         final val = ListItemsModel(
           items: $checkedConvert(
               'items',
-              (v) => (v as List<dynamic>)
-                  .map((e) => ItemsModel.fromJson(e as Object))
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => ItemsModel.fromJson(e as Object))
                   .toList()),
+          pagination: $checkedConvert('pagination',
+              (v) => v == null ? null : PaginationModel.fromJson(v as Object)),
         );
         return val;
       },
@@ -25,4 +27,5 @@ ListItemsModel _$ListItemsModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$ListItemsModelToJson(ListItemsModel instance) =>
     <String, dynamic>{
       'items': instance.items,
+      'pagination': instance.pagination,
     };

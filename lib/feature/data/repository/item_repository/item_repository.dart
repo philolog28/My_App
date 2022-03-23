@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:commerce_app/constants.dart';
 import 'package:commerce_app/feature/data/mapper/response_mappers/items_mapper.dart';
 import 'package:commerce_app/feature/data/mapper/response_mappers/list_item_mapper.dart';
 import 'package:commerce_app/feature/data/models/item_models/items_list_model.dart';
@@ -20,8 +21,9 @@ class ItemRepositoryImpl implements ItemRepository {
   final ListItemMapper _listItemMapper;
 
   @override
-  Future <ListItemEnt?> getAllItems() async {
-    final listItemsRequest = Uri.https(_baseUrl, '/api/products');
+  Future <ListItemEnt?> getAllItems({required offset}) async {
+    final listItemsRequest = Uri.https(_baseUrl, '/api/products',
+    <String,String>{'page':'$offset','limit':'$paginationLimit'});
     final listItemsResponse = await http.get(listItemsRequest);
     var _response = ListItemsModel.fromJson(json.decode(listItemsResponse.body));
     if (listItemsResponse.statusCode != 200) {

@@ -10,11 +10,4 @@ class UserLoginEnt extends Equatable {
   @override
   List<Object?> get props => [accessKey];
 
-  UserLoginEnt copyWith({
-    String? accessKey,
-  }) {
-    return UserLoginEnt(
-      accessKey: accessKey ?? this.accessKey,
-    );
-  }
 }

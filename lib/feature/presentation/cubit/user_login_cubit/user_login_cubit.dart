@@ -14,7 +14,6 @@ class UserLoginCubit extends Cubit<UserLoginState> {
 
   Future <UserLoginEnt?> fetchUserLogin() async {
     emit(state.copyWith(status: UserLoginLoadingStatus.loading));
-    print(1);
     try {
       final accessKey = await _userLoginRepository.getUserAccessKey();
       emit(state.copyWith(status: UserLoginLoadingStatus.success, accessKey: accessKey));

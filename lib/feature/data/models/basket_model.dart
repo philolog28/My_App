@@ -1,6 +1,6 @@
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:commerce_app/feature/data/models/item_models/item_model.dart';
+
 import 'basket_items_model.dart';
 import 'basket_user_model.dart';
 

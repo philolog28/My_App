@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:commerce_app/feature/data/data_sources/store.dart';
 import 'package:commerce_app/feature/data/mapper/response_mappers/user_login_mapper.dart';
 import 'package:commerce_app/feature/data/models/user_login_model.dart';
 import 'package:commerce_app/feature/domain/entities/user_login_entity/user_login_entity.dart';
@@ -13,9 +14,10 @@ class UserLoginNotFoundFailure implements Exception {}
 class UserLoginRepositoryImpl implements UserLoginRepository {
   static const _baseUrl = 'vue-study.skillbox.cc';
 
-  const UserLoginRepositoryImpl(this._userLoginMapper);
+  const UserLoginRepositoryImpl(this._userLoginMapper,this._store);
 
   final UserLoginMapper _userLoginMapper;
+  final Store _store;
 
   @override
   Future <UserLoginEnt?> getUserAccessKey() async {
@@ -25,8 +27,9 @@ class UserLoginRepositoryImpl implements UserLoginRepository {
     if (userAccessKeyResponse.statusCode != 200) {
       throw UserLoginRequestFailure();
     }
-
     final userAccessKey = _userLoginMapper.map(_response);
+    await _store.setAccessKey(userAccessKey?.accessKey);
+    print(userAccessKey);
     return userAccessKey;
   }
 

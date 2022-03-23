@@ -13,8 +13,8 @@ class ColorCircle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 20,
-      height: 20,
+      width: 30,
+      height: 30,
       decoration: BoxDecoration(
         color: HexColor('$code'),
         shape: BoxShape.circle,

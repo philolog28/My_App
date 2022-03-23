@@ -25,7 +25,7 @@ class ItemCardForGridView extends StatelessWidget {
     itemPrice() {
       return Text(
         '$price ₽',
-
+        style: const TextStyle(fontSize: 25),
       );
     }
 
@@ -33,14 +33,15 @@ class ItemCardForGridView extends StatelessWidget {
       return Text(
         '$title',
         textAlign: TextAlign.center,
+        style: const TextStyle(fontSize: 25),
       );
     }
 
     colorContainer() {
       return Center(
         child: SizedBox(
-          height: 10,
-          width: colors.length * 30,
+          height: 20,
+          width: colors.length * 40,
           child: ListView.builder(
             itemBuilder: (context, index) {
               return Padding(
@@ -69,6 +70,7 @@ class ItemCardForGridView extends StatelessWidget {
           color: Colors.white,
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(

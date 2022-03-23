@@ -15,15 +15,13 @@ class ItemCardCubit extends Cubit<ItemCardState> {
 
   Future <Items?> fetchItemCard() async {
     emit(state.copyWith(status: ItemListLoadingStatus.loading));
-    print(1);
+
     try {
       final item = await _itemCardRepository.getItemCard(productId: productId);
       emit(state.copyWith(status: ItemListLoadingStatus.success, items: item));
-    } on Exception {
-      emit(state.copyWith(status: ItemListLoadingStatus.failure));
     }
     catch (e) {
-      print(e);
+      emit(state.copyWith(status: ItemListLoadingStatus.failure));
     }
   }
 }
