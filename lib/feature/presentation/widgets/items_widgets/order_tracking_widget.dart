@@ -1,9 +1,6 @@
-import 'package:commerce_app/feature/presentation/cubit/order_cubit/order_cubit.dart';
-import 'package:commerce_app/feature/presentation/widgets/pages/order_info_page.dart';
 import 'package:commerce_app/feature/presentation/widgets/pages/order_tracking.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/src/provider.dart';
 
 class OrderTrackingTextField extends StatefulWidget {
   const OrderTrackingTextField({
@@ -60,13 +57,34 @@ class _OrderTrackingTextFieldState extends State<OrderTrackingTextField> {
                   style: TextStyle(color: Colors.black),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => OrderTrackingPage(
-                            orderId: orderId,
-                          )));
-
+                  if(orderId!= ''){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => OrderTrackingPage(
+                                  orderId: orderId,
+                                )));
+                  }else{
+                    showDialog<void>(
+                      context: context,
+                      barrierDismissible: false,
+                      // false = user must tap button, true = tap outside dialog
+                      builder: (BuildContext dialogContext) {
+                        return AlertDialog(
+                          content: const Text('Введите ID заказа.'),
+                          actions: <Widget>[
+                            TextButton(
+                              child: const Text('Ок'),
+                              onPressed: () {
+                                Navigator.of(dialogContext)
+                                    .pop(); // Dismiss alert dialog
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
                 },
               ),
             ),

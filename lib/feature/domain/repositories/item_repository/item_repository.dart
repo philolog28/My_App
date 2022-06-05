@@ -3,10 +3,7 @@ import 'package:commerce_app/feature/domain/entities/item_entities/list_item_ent
 
 
 abstract class ItemRepository {
-  Future <ListItemEnt?>? getAllItems({required int offset}){
-  }
+  Future <ListItemEnt?>? getAllItems({required int offset});
 
-  Future<List<Items>>? searchItem(String itemId){
-
-  }
+  Future<List<Items>>? searchItem(String itemId);
 }

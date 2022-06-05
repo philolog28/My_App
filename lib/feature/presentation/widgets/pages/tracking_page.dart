@@ -43,7 +43,7 @@ class _TrackingPageViewState extends State<_TrackingPageView> {
       ),
       body: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: const [
           OrderTrackingTextField(),
         ],
       ),

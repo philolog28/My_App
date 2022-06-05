@@ -3,9 +3,7 @@ import 'package:commerce_app/feature/domain/entities/sort_entities/sort_item_lis
 
 
 abstract class SortItemRepository {
-  Future <SortItemListEnt?>? getAllCategories(){
-  }
+  Future <SortItemListEnt?>? getAllCategories();
 
-  Future<ListItemEnt?>? getAllItemsFromCategory({required int? categoryId}){
-  }
+  Future<ListItemEnt?>? getAllItemsFromCategory({required int? categoryId});
 }

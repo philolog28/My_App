@@ -28,7 +28,6 @@ class BasketCubit extends Cubit<BasketState> {
     }catch(e){
      print(e);
    }
-
   }
 
   Future<BasketEntity?> fetchBasket() async {

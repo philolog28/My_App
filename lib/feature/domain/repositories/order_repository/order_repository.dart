@@ -6,8 +6,7 @@ abstract class OrderRepository {
       required String? address,
       required String? phone,
       required String? email,
-      required String? comment}) {}
+      required String? comment});
 
-  Future<OrderEntity?>? getOrderInfo({ required String? orderId}) {
-  }
+  Future<OrderEntity?>? getOrderInfo({ required String? orderId});
 }
